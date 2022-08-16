@@ -1,0 +1,49 @@
+body{
+    background-color:rgb(75,74,74);
+    color: antiquewhite;
+}
+
+.jumbo-color {
+    background-color:rgb(83,81,82);
+}
+
+.form-control{
+    
+    background-color: rgb(177, 168, 168);
+}
+
+#form-control2{
+    display:inline-block;
+    width: 100%;
+    padding: 0.375rem 0.75rem;
+    font-size: 1rem;
+    font-weight: 400;
+    line-height: 1.5;
+    color: #212529;
+    background-color: rgb(177, 168, 168);
+    background-clip: padding-box;
+    border: 1px solid #ced4da;
+    appearance: none;
+    border-radius: 0.375rem;
+    transition: border-color .15s ease-in-out,box-shadow .15s ease-in-out;
+}
+.btnnn{
+    background-color: rgb(177, 168, 168)
+}
+
+.tablecolor2{
+    background-color: rgb(148, 142, 147)
+}
+
+.tablecolor1{
+    background-color: rgb(177, 168, 168)
+}
+
+#inline1{display: inline-block;}
+#inline2{display: inline-block;}
+#inline3{display: inline-block;}
+#inline4{display: inline-block;}
+#inline5{display: inline-block;}
+#inline6{display: inline-block;}
+#inline7{display: inline-block;}
+#inline8{display: inline-block;}

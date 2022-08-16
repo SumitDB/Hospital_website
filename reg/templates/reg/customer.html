@@ -1,0 +1,77 @@
+{% extends 'reg/base.html' %}
+
+{% block content %}
+<div class="jumbotron jumbotron-fluid jumbo-color">
+    <div class=" col-sm-12">
+        <div class="container-fluid">
+            <br>
+            <div class="d-flex align-items-center justify-content-center">
+                <br>
+                <br>
+                <br>
+                {% if stu %}
+                <div class="col-sm-12">
+                    <h3 class="text-center display-4 font-weight-bold">Customers</h3>
+                    <br>
+                    <h6 class="lead text-center">
+                        {% if messages %}
+                        {% for message in messages %}
+                        <div {% if message.tags %} class="{{ messages.tags}} text-warning" {% endif %}>
+                            {{message}}
+                        </div>
+                        {% endfor %}
+                        {% endif %}
+                    </h6>
+                    <div class="float-end"></div>
+                    <br>
+                    <br>
+
+                    <table class="table table-bordered">
+                        <thead class=" thead-dark">
+                            <tr class="tablecolor2 align-middle ">
+                                <th scope="col">Id</th>
+                                <th scope="col">Name</th>
+                                <th scope="col">Age</th>
+                                <th scope="col">Gender</th>
+                                <th scope="col">Address</th>
+                                <th scope="col">Complaints</th>
+                                <th scope="col">Genral exams</th>
+                                <th class='text-center'scope="col">Actions</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            {% for st in stu %}
+                            <tr class="tablecolor1 align-middle ">
+                                <th>{{ st.id }}</th>
+                                <td>{{ st.name }}</td>
+                                <td>{{ st.age }}</td>
+                                <td>{{ st.gender }}</td>
+                                <td>{{ st.address }}</td>
+                                <td>{{ st.complaints }}</td>
+                                <td>{{ st.genral_exams }}</td>
+                                <td class="text-center">
+                                    <a  href="{%  url 'viewdata_all' st.id %}" class="btn btn-sm tablecolor2  " >View </a>
+                                    <a href="{%  url 'viewdata' st.id %}" class="btn btn-sm tablecolor2">Edit</a>
+                                    <form action="{% url 'deletedata' st.id %}" method="POST" class="d-inline ">
+                                        {% csrf_token %}
+                                        <input type="submit" class="btn btn-sm tablecolor2"
+                                            onclick="return confirm('Do you really want to delete?');" value="Delete">
+                                    </form>
+                                </td>
+                            </tr>
+                            {% endfor %}
+                        </tbody>
+                    </table>
+                    {% else %}
+                    <br>
+                    <br>
+                    <h4 class=" text-center "> Add Customers to View</h4>
+                </div>
+                {% endif %}
+            </div>
+        </div>
+    </div>
+    <br><br> <br>
+</div>
+
+{% endblock content %}

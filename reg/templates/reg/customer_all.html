@@ -1,0 +1,50 @@
+{% extends 'reg/base.html' %}
+
+{% block content %}
+
+<div class="jumbotron jumbotron-fluid jumbo-color">
+    <div class="container">
+        <br>
+        <h1 class="text-center display-4 font-weight-bold">Customer Information </h1>
+        <h6 class="lead text-center">
+            {% if messages %}
+            {% for message in messages %}
+            <div {% if message.tags %} class="{{ messages.tags}} text-warning" {% endif %}>
+                {{message}}
+            </div>
+            {% endfor %}
+            {% endif %}
+        </h6> <br>
+        <div class="col-sm-8 offset-2">
+            <form action="" method="POST">
+                {% csrf_token %}
+                <div class="row">
+                    <div class="col-md-4">Name {{formm.name}}</div>
+                    <div class="col-md-4">Gender{{formm.gender}}</div>
+                    <div class="col-md-4">Age{{formm.age}}</div>
+                </div><br>
+                <div class="row">
+                    <div class="col-md-6">Email{{formm.email}}</div>
+                    <div class="col-md-6">Mobile{{formm.mobile}}</div>
+                </div><br>
+                <div>
+                    <p>Complaints{{formm.complaints}}</p>
+                    <p>Address {{formm.address}}</p>
+                    <div class="row">
+                        <div class="col-md-6">Pulse {{formm.pulse}}</div>
+                        <div class="col-md-6">Blood Pressure {{formm.blood_pressure}}</div>
+                    </div>
+                    <div class="row">
+                        <div class="col-md-6">Temprature {{formm.temprature}}</div>
+                        <div class="col-md-6">Blood Sugar Level {{formm.blood_suger_level}}</div>
+                    </div>
+                    <p>Genral Exams {{formm.genral_exams}}</p>
+                </div> 
+            </form>
+            <div><a  href="{% url 'customer' %}" class="btn tablecolor1" >Back</a></div>
+            <br>
+            <br>
+        </div>
+    </div>
+</div>                    
+{% endblock content %}

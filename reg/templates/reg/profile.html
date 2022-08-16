@@ -1,0 +1,74 @@
+{% extends 'reg/base.html' %}
+
+{% block content %}
+<div class=" col-sm-12">
+    <div class="jumbotron jumbotron-fluid jumbo-color">
+        <div class="container">
+            <br>
+            <h1 class="text-center display-4 font-weight-bold">Welcome {{name}}</h1>
+            <br>
+        </div>
+    </div>
+    <div class="container">
+        <div class="justify-content-center">
+            <div class="col-sm-12">
+                <br>
+                <h4 class="text-center ">Add New Customer</h4>
+                <br>
+                <form action="" class='form-inline' method="POST" novalidate>
+                    {% csrf_token %}
+                    {% if formm.error %}
+                    {% for field in formm %}
+                    {% for error in field.errors %}
+                    <div class="alert alert-danger">
+                        <strong>{{ error|escape }}</strong>
+                    </div>
+                    {% endfor %}
+                    {% endfor %}
+                    {% for error in formm.non_field_errors %}
+                    <div class="alert alert-danger">
+                        <strong>{{ error|escape }}</strong>
+                    </div>
+                    {% endfor %}
+                    {% endif %}
+                    <div class="row">
+                        <div class="col-md-4">Name {{formm.name}}</div>
+                        <div class="col-md-4">Gender{{formm.gender}}</div>
+                        <div class="col-md-4">Age{{formm.age}}</div>
+                    </div><br>
+                    <div class="row">
+                        <div class="col-md-6">Email{{formm.email}}</div>
+                        <div class="col-md-6">Mobile{{formm.mobile}}</div>
+                    </div><br>
+                    <div>
+                        <p>Complaints{{formm.complaints}}</p>
+                        <p>Address {{formm.address}}</p>
+                        <div class="row">
+                            <div class="col-md-6">Pulse {{formm.pulse}}</div>
+                            <div class="col-md-6">Blood Pressure {{formm.blood_pressure}}</div>
+                        </div>
+                        <div class="row">
+                            <div class="col-md-6">Temprature {{formm.temprature}}</div>
+                            <div class="col-md-6">Blood Sugar Level {{formm.blood_suger_level}}</div>
+                        </div>
+                        <p>Genral Exams {{formm.genral_exams}}</p>
+                    </div>
+                    <input type="submit" class="btn tablecolor2" value="Add">
+                    <br> <br>
+                    <h6 class="lead text-center">
+                        {% if messages %}
+                        {% for message in messages %}
+                        <div {% if message.tags %} class="{{ messages.tags}} text-warning" {% endif %}>
+                            {{message}}
+                        </div>
+                        {% endfor %}
+                        {% endif %}
+                    </h6>
+                </form>
+            </div>
+        </div>
+    </div>
+</div>
+
+
+{% endblock content %}
