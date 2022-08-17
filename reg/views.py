@@ -54,8 +54,29 @@ def User_profile(request):
                 temp = fmm.cleaned_data['temprature']
                 gex = fmm.cleaned_data['genral_exams']
                 ct = fmm.cleaned_data['city']
+                tt1 = fmm.cleaned_data['treatment_type_1']
+                tn1 = fmm.cleaned_data['treatment_name_1']
+                u1 = fmm.cleaned_data['units_1']
+                d1 = fmm.cleaned_data['details_1']
+                tt2 = fmm.cleaned_data['treatment_type_2']
+                tn2 = fmm.cleaned_data['treatment_name_2']
+                u2 = fmm.cleaned_data['units_2']
+                d2 = fmm.cleaned_data['details_2']
+                tt3 = fmm.cleaned_data['treatment_type_3']
+                tn3 = fmm.cleaned_data['treatment_name_3']
+                u3 = fmm.cleaned_data['units_3']
+                d3 = fmm.cleaned_data['details_3']
+                tt4 = fmm.cleaned_data['treatment_type_4']
+                tn4 = fmm.cleaned_data['treatment_name_4']
+                u4 = fmm.cleaned_data['units_4']
+                d4 = fmm.cleaned_data['details_4']
+                tt5 = fmm.cleaned_data['treatment_type_5']
+                tn5 = fmm.cleaned_data['treatment_name_5']
+                u5 = fmm.cleaned_data['units_5']
+                d5 = fmm.cleaned_data['details_5']
+
                 reg = Customer( name=nm, age=ag, gender=ge, email=em, mobile=mb, address=ad, complaints=com, pulse=pl, blood_pressure=bp,
-                blood_suger_level=bsl,genral_exams=gex,city=ct,temprature=temp)
+                blood_suger_level=bsl,genral_exams=gex,city=ct,temprature=temp,treatment_type_1=tt1,treatment_name_1=tn1,units_1=u1,details_1=d1,treatment_type_2=tt2,treatment_name_2=tn2,units_2=u2,details_2=d2,treatment_type_3=tt3,treatment_name_3=tn3,units_3=u3,details_3=d3,treatment_type_4=tt4,treatment_name_4=tn4,units_4=u4,details_4=d4,treatment_type_5=tt5,treatment_name_5=tn5,units_5=u5,details_5=d5,)
                 reg.save()
                 messages.success(request,'You have successfully added the customer !!')
                 fmm = CustomerReg()
