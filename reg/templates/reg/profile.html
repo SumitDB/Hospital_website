@@ -53,52 +53,65 @@
                         </div>
                         <p>Genral Exams {{formm.genral_exams}}</p>
                     </div>
-                    <div>
-
-                        <div class="row" id="treatment1">
-                            <div class="col-md-3">Treatment_type_1 {{formm.treatment_type_1}}</div>
-                            <div class="col-md-3">Treatment_name_1 {{formm.treatment_name_1}}</div>
-                            <div class="col-md-3">Units_1 {{formm.units_1}}</div>
-                            <div class="col-md-3">Details_1 {{formm.details_1}}</div>
-                        </div>
-                        <br>
-                        <div class="row" id="treatment2">
-                            <div class="col-md-3">Treatment_type_2 {{formm.treatment_type_2}}</div>
-                            <div class="col-md-3">Treatment_name_2 {{formm.treatment_name_2}}</div>
-                            <div class="col-md-3">Units_2 {{formm.units_2}}</div>
-                            <div class="col-md-3">Details_2 {{formm.details_2}}</div>
-
-                        </div>
-                        <br>
-                        <div class="row" id="treatment3">
-                            <div class="col-md-3">Treatment_type_3 {{formm.treatment_type_3}}</div>
-                            <div class="col-md-3">Treatment_name_3 {{formm.treatment_name_3}}</div>
-                            <div class="col-md-3">Units_3 {{formm.units_3}}</div>
-                            <div class="col-md-3">Details_3 {{formm.details_3}}</div>
-                        </div>
-                        <br>
-                        <div class="row" id="treatment4">
-                            <div class="col-md-3">Treatment_type_4 {{formm.treatment_type_4}}</div>
-                            <div class="col-md-3">Treatment_name_4 {{formm.treatment_name_4}}</div>
-                            <div class="col-md-3">Units_4 {{formm.units_4}}</div>
-                            <div class="col-md-3">Details_4 {{formm.details_4}}</div>
-                        </div>
-                        <br>
-                        <div class="row" id="treatment5">
-                            <div class="col-md-3">Treatment_type_5 {{formm.treatment_type_5}}</div>
-                            <div class="col-md-3">Treatment_name_5 {{formm.treatment_name_5}}</div>
-                            <div class="col-md-3">Units_5 {{formm.units_5}}</div>
-                            <div class="col-md-3">Details_5 {{formm.details_5}}</div>
-                        </div>
-
-
+                    <div class="treatmentListN" id="treatmentList">
+                        <ul class="list-group list-group-horizontal pb-2" id="treatment1">
+                            <li class="list-group-item list-group-item-dark">Treatment_type_1 {{formm.treatment_type_1}}
+                            </li>
+                            <li class="list-group-item list-group-item-dark pt-4">
+                                {{formm.treatment_name_1}}</li>
+                            <li class="list-group-item list-group-item-dark pt-4">
+                                {{formm.units_1}}</li>
+                            <li class="list-group-item list-group-item-dark pt-4">
+                                {{formm.details_1}}</li>
+                        </ul>
+                        
+                        <ul class="list-group list-group-horizontal pb-2  " id="treatment3">
+                            <li class="list-group-item list-group-item-dark">Treatment_type_3 {{formm.treatment_type_3}}
+                            <li>
+                            <li class="list-group-item list-group-item-dark pt-4" >
+                                {{formm.treatment_name_3}}
+                            </li>
+                            <li class="list-group-item list-group-item-dark pt-4" >
+                                {{formm.units_3}}</li>
+                            <li class="list-group-item list-group-item-dark pt-4" >
+                                {{formm.details_3}}</li>
+                            <li class="list-group-item list-group-item-dark pt-4" >
+                                <button type="button" class="btn-close" aria-label="Close"></button>
+                            </li>
+                        </ul>
+                        <ul class="list-group list-group-horizontal pb-2 " id="treatment4">
+                            <li class="list-group-item list-group-item-dark">Treatment_type_4 {{formm.treatment_type_4}}
+                            </li>
+                            <li class="list-group-item list-group-item-dark pt-4">
+                                {{formm.treatment_name_4}}
+                            </li>
+                            <li class="list-group-item list-group-item-dark pt-4 ">
+                                {{formm.units_4}}</li>
+                            <li class=" list-group-item list-group-item-dark pt-4">
+                                {{formm.details_4}}</li>
+                            <li class="list-group-item list-group-item-dark pt-4">
+                                <button type="button" class="btn-close" aria-label="Close"></button>
+                            </li>
+                        </ul>
+                        <ul class="list-group list-group-horizontal pb-2 " id="treatment5">
+                            <li class="list-group-item list-group-item-dark ">Treatment_type_5 {{formm.treatment_type_5}}
+                            </li>
+                            <li class="list-group-item list-group-item-dark pt-4">
+                                {{formm.treatment_name_5}}
+                            </li>
+                            <li class="list-group-item list-group-item-dark pt-4" >{{formm.units_5}}
+                            </li>
+                            <li class="list-group-item list-group-item-dark pt-4">
+                                {{formm.details_5}}</li>
+                            <li class="list-group-item list-group-item-dark pt-4">
+                                <button type="button" class="btn-close" aria-label="Close"></button>
+                            </li>
+                        </ul>
                     </div>
-
-                    <button type="button" class=" btn btn-info " id="add_more">+</button> <button type="button"
-                        class=" btn btn-info " id="add_more">-</button><br>
-
+                    
+                    <button type="button" onclick="add_div()" class="btn btn-info p-6 ">add</button>
+                    
                     <input type="submit" class="btn tablecolor2" value="Add">
-                    <br> <br>
                     <h6 class="lead text-center">
                         {% if messages %}
                         {% for message in messages %}
@@ -113,6 +126,63 @@
         </div>
     </div>
 </div>
+<script>
+    function add_div() {
+        let list = [...document.getElementsByClassName("treatmentListN")];
+        list.forEach(element => {});
+
+        let listView1 = document.createElement("ul");
+        let listViewItem1 = document.createElement('li');
+        let listViewItem2 = document.createElement('li');
+        let listViewItem3 = document.createElement('li');
+        let listViewItem4 = document.createElement('li');
+        let listViewItem5 = document.createElement('li');
+        let listViewItem6 = document.createElement('button');
+
+        let tempHtml1 = `{{formm.treatment_type_2}}`;
+        let divT1 = document.createElement("div");
+        let textT1 = divT1.innerHTML = tempHtml1;
+
+        let tempHtml2 = '{{formm.treatment_name_2}}';
+        let divT2 = document.createElement("div");
+        let textT2 = divT2.innerHTML = tempHtml2;
+
+        let tempHtml3 = '{{formm.units_2}}';
+        let divT3 = document.createElement("div");
+        let textT3 = divT3.innerHTML = tempHtml3;
+
+        let tempHtml4 = '{{formm.details_2}}';
+        let divT4 = document.createElement("div");
+        let textT4 = divT4.innerHTML = tempHtml4;
+
+        listView1.id = "treatment" + list.length + 1;
+        listView1.className = "list-group list-group-horizontal ";
+
+        listViewItem1.appendChild(document.createTextNode("Treatment_type_2"));
+        listViewItem1.append(divT1);
+        listViewItem1.className = "list-group-item list-group-item-dark ";
+
+        listViewItem2.append(divT2);
+        listViewItem2.className = "list-group-item list-group-item-dark pt-4";
+        
+        listViewItem3.append(divT3);
+        listViewItem3.className = "list-group-item list-group-item-dark pt-4";
+
+        listViewItem4.append(divT4);
+        listViewItem4.className = "list-group-item list-group-item-dark pt-4";
+        listViewItem5.className = "list-group-item list-group-item-dark pt-4";
+        listViewItem6.className = "btn-close pt-4";
+
+        listView1.appendChild(listViewItem1);
+        listView1.appendChild(listViewItem2);
+        listView1.appendChild(listViewItem3);
+        listView1.appendChild(listViewItem4);
+        listView1.appendChild(listViewItem5);
+        listViewItem5.appendChild(listViewItem6);
+        document.getElementById("treatmentList").append(listView1)
+    }
+
+</script>
 
 
 {% endblock content %}
