@@ -109,7 +109,7 @@
                         </ul> -->
                     </div>
                     
-                    <button type="button" onclick="add_div()" class="btn btn-info p-6 ">add more Treatment</button>
+                    <button type="button" id="addTreat" onclick="add_div()" class="btn btn-info p-6 ">add more Treatment</button>
                     <br >
                     <br>
 
@@ -129,10 +129,17 @@
         </div>
     </div>
 </div>
-<script>
+<script> 
+        let ele = 0;
+        let ar = [`{{formm.treatment_type_2}}`,`{{formm.treatment_type_3}}`,`{{formm.treatment_type_4}}`,`{{formm.treatment_type_5}}`,`{{formm.treatment_type_6}}`];
+
+        let elem = 0;
+        
     function add_div() {
-        let list = [...document.getElementsByClassName("treatmentListN")];
-        list.forEach(element => {});
+        
+        let list = [...document.getElementsByClassName("treatmentListN")]; 
+        
+       
 
         let listView1 = document.createElement("ul");
         let listViewItem1 = document.createElement('li');
@@ -142,7 +149,7 @@
         let listViewItem5 = document.createElement('li');
         let listViewItem6 = document.createElement('button');
 
-        let tempHtml1 = `{{formm.treatment_type_2}}`;
+        let tempHtml1 = ar[ele];
         let divT1 = document.createElement("div");
         let textT1 = divT1.innerHTML = tempHtml1;
 
@@ -159,9 +166,12 @@
         let textT4 = divT4.innerHTML = tempHtml4;
 
         listView1.id = "treatment" + list.length + 1;
-        listView1.className = "list-group list-group-horizontal ";
+        listView1.className = "list-group list-group-horizontal";
 
-        listViewItem1.appendChild(document.createTextNode("Treatment_type_2"));
+        let arr = [`Treatment_type_2`,`Treatment_type_3`,`Treatment_type_4`,`Treatment_type_5`,`Treatment_type_6`];
+        let Fd = arr[elem];
+
+        listViewItem1.appendChild(document.createTextNode(Fd));
         listViewItem1.append(divT1);
         listViewItem1.className = "list-group-item list-group-item-dark ";
 
@@ -174,7 +184,20 @@
         listViewItem4.append(divT4);
         listViewItem4.className = "list-group-item list-group-item-dark pt-4";
         listViewItem5.className = "list-group-item list-group-item-dark pt-4";
-        listViewItem6.className = "btn-close pt-4";
+        listViewItem6.className = "btn-close pt-4 babushet";
+        
+        listViewItem6.onclick = function(e){
+            e.preventDefault();
+            ele--
+            elem--
+            if (!ar[ele] ){
+                $("#addTreat").hide()
+            }else{
+                $("#addTreat").show()
+            }
+            $(e.target).parent().parent().remove();
+            return false;
+        }
 
         listView1.appendChild(listViewItem1);
         listView1.appendChild(listViewItem2);
@@ -183,6 +206,23 @@
         listView1.appendChild(listViewItem5);
         listViewItem5.appendChild(listViewItem6);
         document.getElementById("treatmentList").append(listView1);
+        if(ele>1){
+            Array.from(document.getElementsByClassName("babushet")).forEach(e=>{
+                if(ele==){
+
+                }
+                $(e).hide();
+            })
+        }
+
+        elem++
+        ele++
+
+        if (!ar[ele] ){
+            $("#addTreat").hide()
+        }else{
+            $("#addTreat").show()
+        }
     }
 
 </script>
