@@ -131,16 +131,13 @@
 </div>
 <script> 
         let ele = 0;
-        let ar = [`{{formm.treatment_type_2}}`,`{{formm.treatment_type_3}}`,`{{formm.treatment_type_4}}`,`{{formm.treatment_type_5}}`,`{{formm.treatment_type_6}}`];
-
         let elem = 0;
+        let ar = [`{{formm.treatment_type_2}}`,`{{formm.treatment_type_3}}`,`{{formm.treatment_type_4}}`,`{{formm.treatment_type_5}}`,`{{formm.treatment_type_6}}`];
         
     function add_div() {
         
         let list = [...document.getElementsByClassName("treatmentListN")]; 
         
-       
-
         let listView1 = document.createElement("ul");
         let listViewItem1 = document.createElement('li');
         let listViewItem2 = document.createElement('li');
@@ -198,7 +195,6 @@
             $(e.target).parent().parent().remove();
             return false;
         }
-
         listView1.appendChild(listViewItem1);
         listView1.appendChild(listViewItem2);
         listView1.appendChild(listViewItem3);
@@ -206,19 +202,17 @@
         listView1.appendChild(listViewItem5);
         listViewItem5.appendChild(listViewItem6);
         document.getElementById("treatmentList").append(listView1);
-        if(ele>1){
-            Array.from(document.getElementsByClassName("babushet")).forEach(e=>{
-                if(ele==){
+        // if(ele>1){
+        //     Array.from(document.getElementsByClassName("babushet")).forEach(e=>{
+        //         if(ele==){
 
-                }
-                $(e).hide();
-            })
-        }
-
+        //         }
+        //         $(e).hide();
+        //     })
+        // }
         elem++
         ele++
-
-        if (!ar[ele] ){
+        if (!ar[ele]){
             $("#addTreat").hide()
         }else{
             $("#addTreat").show()
