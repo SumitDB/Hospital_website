@@ -68,5 +68,9 @@ class CustomerReg(forms.ModelForm):
             'treatment_name_5': forms.TextInput(attrs={'class':'form-control','placeholder':'Name'}),
             'units_5': forms.TextInput(attrs={'class':'form-control','placeholder':'Units'}),
             'details_5': forms.TextInput(attrs={'class':'form-control','placeholder':'Details'}),
+            'treatment_type_6': forms.Select(attrs={'class':'form-control'}),
+            'treatment_name_6': forms.TextInput(attrs={'class':'form-control','placeholder':'Name'}),
+            'units_6': forms.TextInput(attrs={'class':'form-control','placeholder':'Units'}),
+            'details_6': forms.TextInput(attrs={'class':'form-control','placeholder':'Details'}),
             }
 
