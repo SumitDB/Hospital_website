@@ -40,6 +40,7 @@ def User_login(request):
         
 def User_profile(request):
     if request.user.is_authenticated:
+        print('yes')
         if request.method == "POST":
             fmm = CustomerReg(request.POST)
             if fmm.is_valid():
