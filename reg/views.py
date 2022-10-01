@@ -42,8 +42,10 @@ def User_profile(request):
     if request.user.is_authenticated:
         print('yes')
         if request.method == "POST":
+            print('Yes')
             fmm = CustomerReg(request.POST)
             if fmm.is_valid():
+                print('Yyes')
                 nm = fmm.cleaned_data['name']
                 ag = fmm.cleaned_data['age']
                 ge = fmm.cleaned_data['gender']
@@ -137,7 +139,6 @@ def View_data(request,id):
     if request.user.is_authenticated:
         pi = Customer.objects.get(pk=id)
         fmm = CustomerReg(instance=pi)      
-
         return render(request, 'reg/updatecustomer.html',{'formm':fmm, 'id':id})
     else:
         return HttpResponseRedirect('/login/')
