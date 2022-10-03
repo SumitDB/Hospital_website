@@ -149,5 +149,8 @@ def Customers_all(request, id):
         pi = Customer.objects.get(pk=id)
         fmm = CustomerReg(instance=pi) 
         return render(request, 'reg/customer_all.html',{ 'formm':fmm})
+
+
+        
     else:
         return HttpResponseRedirect('/login/')
