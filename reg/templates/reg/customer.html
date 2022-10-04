@@ -25,7 +25,6 @@
                     <div class="float-end"></div>
                     <br>
                     <br>
-
                     <table class="table table-bordered">
                         <thead class=" thead-dark">
                             <tr class="tablecolor2 align-middle ">
@@ -36,6 +35,8 @@
                                 <th scope="col">Address</th>
                                 <th scope="col">Complaints</th>
                                 <th scope="col">Genral exams</th>
+                                <th scope="col">Total charges</th>
+                                <th scope="col">Date</th>
                                 <th class='text-center'scope="col">Actions</th>
                             </tr>
                         </thead>
@@ -49,6 +50,10 @@
                                 <td>{{ st.address }}</td>
                                 <td>{{ st.complaints }}</td>
                                 <td>{{ st.genral_exams }}</td>
+                                <td>{{ st.total_fees }}</td>
+                                <td>{{ st.created_at }}</td>
+
+                            
                                 <td class="text-center">
                                     <a  href="{%  url 'viewdata_all' st.id %}" class="btn btn-sm tablecolor2  " >View </a>
                                     <a href="{%  url 'viewdata' st.id %}" class="btn btn-sm tablecolor2">Edit</a>

@@ -16,6 +16,7 @@ class Customer(models.Model):
         ('F', 'Female'),
         ('T', 'Transgender')
     )
+    created_at = models.DateField(auto_now_add=True, null=True)
     name = models.CharField(max_length=25,blank=True,null=True)
     age = models.IntegerField(blank=True,null=True)
     gender = models.CharField(max_length=1, choices=GENDER_CHOICES,blank=True,null=True)
@@ -28,7 +29,7 @@ class Customer(models.Model):
     blood_pressure = models.CharField(max_length=10,blank=True,null=True)
     temprature = models.CharField(max_length=10,blank=True,null=True)
     blood_suger_level = models.CharField(max_length=10,blank=True,null=True)
-    genral_exams = models.CharField(max_length=100,null=True,blank=True)  
+    genral_exams = models.CharField(max_length=100,null=True,blank=True)
     treatment_type_1 = models.CharField(max_length=100, choices=Treatment_Choices,blank=True,null=True)
     treatment_name_1 = models.CharField(max_length=100,blank=True,null=True)
     units_1 = models.IntegerField(blank=True,null=True)
@@ -53,9 +54,11 @@ class Customer(models.Model):
     treatment_name_6 = models.CharField(max_length=100,blank=True,null=True)
     units_6 = models.IntegerField(blank=True,null=True)
     details_6 = models.CharField(max_length=90,blank=True,null=True)
+    total_fees = models.PositiveIntegerField(blank=True, null=True)
         
     class Meta:    
         ordering = ['name']
 
-    def __str__(self):
-        return self.name
+    def __str__(self) -> str:
+        return str(self.created_at)
+    

@@ -40,12 +40,10 @@ def User_login(request):
         
 def User_profile(request):
     if request.user.is_authenticated:
-        print('yes')
         if request.method == "POST":
-            print('Yes')
             fmm = CustomerReg(request.POST)
             if fmm.is_valid():
-                print('Yyes')
+                
                 nm = fmm.cleaned_data['name']
                 ag = fmm.cleaned_data['age']
                 ge = fmm.cleaned_data['gender']
@@ -83,7 +81,8 @@ def User_profile(request):
                 tn6 = fmm.cleaned_data['treatment_name_6']
                 u6 = fmm.cleaned_data['units_6']
                 d6 = fmm.cleaned_data['details_6']
-                reg = Customer( name=nm, age=ag, gender=ge, email=em, mobile=mb, address=ad, complaints=com, pulse=pl, blood_pressure=bp,blood_suger_level=bsl,genral_exams=gex,city=ct,temprature=temp,treatment_type_1=tt1,treatment_name_1=tn1,units_1=u1,details_1=d1,treatment_type_2=tt2,treatment_name_2=tn2,units_2=u2,details_2=d2,treatment_type_3=tt3,treatment_name_3=tn3,units_3=u3,details_3=d3,treatment_type_4=tt4,treatment_name_4=tn4,units_4=u4,details_4=d4,treatment_type_5=tt5,treatment_name_5=tn5,units_5=u5,details_5=d5,treatment_type_6=tt6,treatment_name_6=tn6,units_6=u6,details_6=d6)
+                fff = fmm.cleaned_data['total_fees']
+                reg = Customer( name=nm, age=ag, gender=ge, email=em, mobile=mb, address=ad, complaints=com, pulse=pl, blood_pressure=bp,blood_suger_level=bsl,genral_exams=gex,city=ct,temprature=temp,treatment_type_1=tt1,treatment_name_1=tn1,units_1=u1,details_1=d1,treatment_type_2=tt2,treatment_name_2=tn2,units_2=u2,details_2=d2,treatment_type_3=tt3,treatment_name_3=tn3,units_3=u3,details_3=d3,treatment_type_4=tt4,treatment_name_4=tn4,units_4=u4,details_4=d4,treatment_type_5=tt5,treatment_name_5=tn5,units_5=u5,details_5=d5,treatment_type_6=tt6,treatment_name_6=tn6,units_6=u6,details_6=d6, total_fees=fff)
                 reg.save()
                 messages.success(request,'You have successfully added the customer !!')
                 fmm = CustomerReg()
@@ -148,9 +147,6 @@ def Customers_all(request, id):
     if request.user.is_authenticated:
         pi = Customer.objects.get(pk=id)
         fmm = CustomerReg(instance=pi) 
-        return render(request, 'reg/customer_all.html',{ 'formm':fmm})
-
-
-        
+        return render(request, 'reg/customer_all.html',{ 'formm':fmm})        
     else:
         return HttpResponseRedirect('/login/')

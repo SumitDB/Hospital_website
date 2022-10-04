@@ -32,6 +32,7 @@
                     {% endfor %}
                     {% endif %}
                     <div class="row">
+
                         <div class="col-md-4">Name {{formm.name}}</div>
                         <div class="col-md-4">Gender{{formm.gender}}</div>
                         <div class="col-md-4">Age{{formm.age}}</div>
@@ -113,6 +114,7 @@
                     <button type="button" id="addTreat" onclick="add_div()" class="btn btn-info p-6 ">add more
                         Treatment</button>
                     <br>
+                    <h5>Total charges:{{ formm.total_fees }}</h5>
                     <br>
                     <input type="submit" class="btn tablecolor2" value="Add">
                     <h6 class="lead text-center">

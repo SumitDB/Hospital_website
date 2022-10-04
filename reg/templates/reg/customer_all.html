@@ -18,6 +18,7 @@
         <div class="col-sm-8 offset-2">
             <form action="" method="POST">
                 {% csrf_token %}
+            
                 <div class="row">
                     <div class="col-md-4">Name {{formm.name}}</div>
                     <div class="col-md-4">Gender{{formm.gender}}</div>
@@ -40,6 +41,7 @@
                     </div>
                     <p>Genral Exams {{formm.genral_exams}}</p>
                 </div> 
+                {% if formm.treatment_name_1.value != None  %}
                 <div class="row">
                     <div class="col-md-3">Treatment_type_1 {{formm.treatment_type_1}}</div>
                     <div class="col-md-3">Treatment_name_1 {{formm.treatment_name_1}}</div>
@@ -47,6 +49,9 @@
                     <div class="col-md-3">Details_1 {{formm.details_1}}</div>
                 </div>
                 <br>
+                {% endif %}
+                
+                {% if formm.units_2.value != None  %}
                 <div class="row">
                     <div class="col-md-3">Treatment_type_2 {{formm.treatment_type_2}}</div>
                     <div class="col-md-3">Treatment_name_2 {{formm.treatment_name_2}}</div>
@@ -54,6 +59,9 @@
                     <div class="col-md-3">Details_2 {{formm.details_2}}</div>
                 </div>
                 <br>
+                {% endif %}
+                
+                {% if formm.treatment_name_3.value != None  %}
                 <div class="row">
                     <div class="col-md-3">Treatment_type_3 {{formm.treatment_type_3}}</div>
                     <div class="col-md-3">Treatment_name_3 {{formm.treatment_name_3}}</div>
@@ -61,6 +69,9 @@
                     <div class="col-md-3">Details_3 {{formm.details_3}}</div>
                 </div>
                 <br>
+                {% endif %}
+                
+                {% if formm.treatment_name_4.value != None  %}
                 <div class="row">
                     <div class="col-md-3">Treatment_type_4 {{formm.treatment_type_4}}</div>
                     <div class="col-md-3">Treatment_name_4 {{formm.treatment_name_4}}</div>
@@ -68,6 +79,9 @@
                     <div class="col-md-3">Details_4 {{formm.details_4}}</div>
                 </div>
                 <br>
+                {% endif %}
+                
+                {% if formm.treatment_name_5.value != None %}
                 <div class="row">
                     <div class="col-md-3">Treatment_type_5 {{formm.treatment_type_5}}</div>
                     <div class="col-md-3">Treatment_name_5 {{formm.treatment_name_5}}</div>
@@ -75,18 +89,24 @@
                     <div class="col-md-3">Details_5 {{formm.details_5}}</div>
                 </div>
                 <br>
+                {% endif %}
+                
+                {% if formm.treatment__6.value != None %}
                 <div class="row">
                     <div class="col-md-3">Treatment_type_6 {{formm.treatment_type_6}}</div>
                     <div class="col-md-3">Treatment_name_6 {{formm.treatment_name_6}}</div>
                     <div class="col-md-3">Units_6 {{formm.units_6}}</div>
                     <div class="col-md-3">Details_6 {{formm.details_6}}</div>
                 </div>
+                {% endif %}
+                <h5>Total charges:{{ formm.total_fees }} </h5>
+
                 
             </form>
-            <div><a  href="{% url 'customer' %}" class="btn tablecolor1" >Back</a></div>
+            <div><a  href="{% url 'customer' %}" class="btn tablecolor1" >Back</a></div> 
             <br>
             <br>
         </div>
     </div>
-</div>                    
+</div>    
 {% endblock content %}
