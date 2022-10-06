@@ -43,7 +43,6 @@ def User_profile(request):
         if request.method == "POST":
             fmm = CustomerReg(request.POST)
             if fmm.is_valid():
-                
                 nm = fmm.cleaned_data['name']
                 ag = fmm.cleaned_data['age']
                 ge = fmm.cleaned_data['gender']

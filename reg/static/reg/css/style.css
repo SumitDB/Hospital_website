@@ -3,9 +3,6 @@ body{
     color: antiquewhite;
 }
 
-.jumbo-color {
-    background-color:rgb(83,81,82);
-}
 
 .form-control{
     
@@ -26,6 +23,7 @@ body{
     appearance: none;
     border-radius: 0.375rem;
     transition: border-color .15s ease-in-out,box-shadow .15s ease-in-out;
+    
 }
 .btnnn{
     background-color: rgb(177, 168, 168)
@@ -44,9 +42,6 @@ body{
 }
 .btn-text-right{
 	text-align: right;}
-
-
-
 #inline1{display: inline-block;}
 #inline2{display: inline-block;}
 #inline3{display: inline-block;}
@@ -55,3 +50,9 @@ body{
 #inline6{display: inline-block;}
 #inline7{display: inline-block;}
 #inline8{display: inline-block;}
+
+
+.dataTables_length label,
+.dataTables_filter label {
+  color: #ffffff;
+}

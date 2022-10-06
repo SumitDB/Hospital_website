@@ -1,4 +1,5 @@
 from django.db import models
+from django.utils import timezone
 
 # Create your models here.
 class User(models.Model):
@@ -16,7 +17,7 @@ class Customer(models.Model):
         ('F', 'Female'),
         ('T', 'Transgender')
     )
-    created_at = models.DateField(auto_now_add=True, null=True)
+    created_at = models.DateTimeField(auto_now_add=True)
     name = models.CharField(max_length=25,blank=True,null=True)
     age = models.IntegerField(blank=True,null=True)
     gender = models.CharField(max_length=1, choices=GENDER_CHOICES,blank=True,null=True)
